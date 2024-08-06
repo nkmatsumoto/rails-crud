@@ -1,9 +1,11 @@
-<h1>All Restaurants</h1>
+<h1 class="mt-2">All Restaurants</h1>
 
 <ul>
   <% @restaurants.each do |restaurant| %>
-    <li><%= link_to restaurant.name, restaurant_path(restaurant) %></li>
+    <li><%= link_to restaurant.name, restaurant_path(restaurant), class:"text-decoration-none" %></li>
   <% end %>
 </ul>
 
-<%= link_to "Create a new restaurant", restaurants_new_path %>
+<div class="d-flex">
+<%= link_to "Create a new restaurant", restaurants_new_path, class:"text-decoration-none m-2" %>
+</div>

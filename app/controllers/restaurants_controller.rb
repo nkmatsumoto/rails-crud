@@ -13,9 +13,14 @@ class RestaurantsController < ApplicationController
 
   def create
     @restaurant = Restaurant.new(restaurant_params)
-    @restaurant.save
+    if @restaurant.save
+      redirect_to restaurant_path(@restaurant)
+    else
+      #show the form again but with @restaurant in this method
+      render 'new', status: :unprocessable_entity
+    end
     # No need for app/views/restaurants/create.html.erb
-    redirect_to restaurant_path(@restaurant)
+
   end
 
   def edit
